@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accessibility-first Sign Language Translator Design System */
+
+@layer base {
+  :root {
+    /* Light Theme Colors - Monochromatic Professional */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --surface: 0 0% 98%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Primary: Professional Navy */
+    --primary: 210 30% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 210 30% 20%;
+
+    /* Secondary: Professional Gray */
+    --secondary: 0 0% 40%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 0 0% 35%;
+
+    /* Accent: Subtle Teal */
+    --accent: 180 25% 40%;
+    --accent-foreground: 0 0% 98%;
+    --accent-hover: 180 25% 35%;
+    --accent-active: 180 25% 30%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 50% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 210 30% 25%;
+
+    --radius: 0.75rem;
+
+    /* Status Colors - Strategic Colors */
+    --success: 140 40% 35%;
+    --warning: 35 60% 45%;
+    --error: 0 50% 40%;
+
+    /* Confidence Colors - Colored for clarity */
+    --confidence-low: 0 50% 50%;
+    --confidence-medium: 35 60% 45%;
+    --confidence-high: 140 40% 35%;
+
+    /* Camera States - Clear Status Colors */
+    --camera-active: 140 40% 35%;
+    --camera-processing: 35 60% 45%;
+    --camera-error: 0 50% 40%;
+
+    /* Single Colors - No Gradients */
+    --gradient-primary: hsl(var(--primary));
+    --gradient-hero: hsl(var(--primary));
+    --gradient-card: hsl(var(--card));
+
+    /* Shadows - Neutral */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.12);
+    --shadow-strong: 0 8px 32px -8px hsl(0 0% 0% / 0.16);
+
+    /* Focus ring for accessibility */
+    --focus-ring: 0 0 0 2px hsl(210 50% 45% / 0.2), 0 0 0 4px hsl(210 50% 45%);
+  }
+
+  /* High Contrast Mode */
+  .high-contrast {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --primary: 240 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 100% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 30 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --destructive: 0 100% 35%;
+    --success: 120 100% 25%;
+    --warning: 45 100% 35%;
+    --error: 0 100% 35%;
+  }
+
+  .dark {
+    /* Dark Theme Colors - Monochromatic Professional */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 92%;
+    --surface: 0 0% 12%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 92%;
+
+    /* Primary: Professional Navy (lighter for dark) */
+    --primary: 210 30% 65%;
+    --primary-foreground: 0 0% 8%;
+    --primary-hover: 210 30% 70%;
+
+    /* Secondary: Medium Gray for dark theme */
+    --secondary: 0 0% 70%;
+    --secondary-foreground: 0 0% 8%;
+    --secondary-hover: 0 0% 75%;
+
+    /* Accent: Teal (lighter for dark) */
+    --accent: 180 25% 65%;
+    --accent-foreground: 0 0% 8%;
+    --accent-hover: 180 25% 70%;
+    --accent-active: 180 25% 75%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 0 0% 92%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 210 30% 65%;
+
+    /* Status Colors (adjusted for dark) - Clear Colors */
+    --success: 140 40% 65%;
+    --warning: 35 60% 70%;
+    --error: 0 50% 60%;
+
+    /* Confidence Colors (adjusted for dark) - Clear Status */
+    --confidence-low: 0 50% 70%;
+    --confidence-medium: 35 60% 70%;
+    --confidence-high: 140 40% 65%;
+
+    /* Camera States (adjusted for dark) - Clear Status */
+    --camera-active: 140 40% 65%;
+    --camera-processing: 35 60% 70%;
+    --camera-error: 0 50% 60%;
+
+    /* Single Colors (adjusted for dark) - No Gradients */
+    --gradient-primary: hsl(var(--primary));
+    --gradient-hero: hsl(var(--primary));
+    --gradient-card: hsl(var(--card));
+
+    /* Shadows (adjusted for dark) */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+
+    /* Focus ring for accessibility (same as light) */
+    --focus-ring: 0 0 0 2px hsl(212 95% 68% / 0.2), 0 0 0 4px hsl(212 95% 68%);
+  }
+
+  /* Typography System */
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Focus Management */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Skip Link */
+  .skip-link {
+    @apply absolute top-2 left-2 z-50 px-4 py-2 bg-primary text-primary-foreground rounded-md;
+    @apply transform -translate-y-full opacity-0 focus:translate-y-0 focus:opacity-100;
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground;
+    @apply hover:bg-primary-hover hover:shadow-lg hover:scale-105 active:scale-95;
+    @apply transition-all duration-200;
+    @apply min-h-[44px] min-w-[44px] px-6 py-3 text-base font-medium;
+  }
+
+  .btn-camera {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-hover;
+    @apply min-h-[44px] min-w-[44px] px-4 py-2;
+    @apply rounded-full transition-all duration-200;
+  }
+
+  .btn-icon {
+    @apply min-h-[44px] min-w-[44px] p-2;
+    @apply hover:bg-muted active:bg-muted/80;
+    @apply transition-colors duration-200;
+  }
+
+  /* Status Indicators */
+  .status-online {
+    @apply bg-success text-white;
+  }
+
+  .status-offline {
+    @apply bg-warning text-warning-foreground;
+  }
+
+  .status-error {
+    @apply bg-error text-white;
+  }
+
+  /* Camera States */
+  .camera-frame {
+    @apply border-2 border-muted rounded-lg overflow-hidden;
+    @apply transition-all duration-300;
+  }
+
+  .camera-frame.active {
+    @apply border-camera-active shadow-lg;
+    box-shadow: 0 0 0 2px hsl(var(--camera-active) / 0.2);
+  }
+
+  .camera-frame.processing {
+    @apply border-camera-processing;
+    animation: pulse-border 2s infinite;
+  }
+
+  .camera-frame.error {
+    @apply border-camera-error;
+  }
+
+  /* Confidence Meter */
+  .confidence-bar {
+    @apply h-2 rounded-full overflow-hidden bg-muted;
+  }
+
+  .confidence-fill {
+    @apply h-full transition-all duration-500 ease-out;
+  }
+
+  .confidence-low {
+    @apply bg-confidence-low;
+  }
+
+  .confidence-medium {
+    @apply bg-confidence-medium;
+  }
+
+  .confidence-high {
+    @apply bg-confidence-high;
+  }
+
+  /* Cards */
+  .card-elevated {
+    @apply bg-card text-card-foreground rounded-xl;
+    @apply shadow-medium border border-border/50;
+  }
+
+  /* Large Text Mode */
+  .large-text {
+    @apply text-lg;
+  }
+
+  .large-text h1 {
+    @apply text-4xl;
+  }
+
+  .large-text h2 {
+    @apply text-3xl;
+  }
+
+  .large-text h3 {
+    @apply text-2xl;
+  }
+
+  .large-text .btn {
+    @apply text-lg px-8 py-4;
+  }
+
+  /* Animation Keyframes */
+  @keyframes pulse-border {
+    0%, 100% {
+      border-color: hsl(var(--camera-processing));
+      box-shadow: 0 0 0 0 hsl(var(--camera-processing) / 0.4);
+    }
+    50% {
+      border-color: hsl(var(--camera-processing));
+      box-shadow: 0 0 0 4px hsl(var(--camera-processing) / 0.1);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
